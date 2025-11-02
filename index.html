@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Strategy Risk Assessment Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☁️ Cloud Strategy Risk Assessment Simulator</h1>
+            <p class="subtitle">Evaluate and mitigate risks in your cloud migration strategy</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Configuration Section -->
+            <div class="card">
+                <h2>Cloud Configuration</h2>
+                
+                <div class="input-group">
+                    <label for="cloudProvider">Cloud Provider</label>
+                    <select id="cloudProvider">
+                        <option value="aws">Amazon Web Services (AWS)</option>
+                        <option value="azure">Microsoft Azure</option>
+                        <option value="gcp">Google Cloud Platform (GCP)</option>
+                        <option value="multicloud">Multi-Cloud Strategy</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="deploymentModel">Deployment Model</label>
+                    <select id="deploymentModel">
+                        <option value="public">Public Cloud</option>
+                        <option value="private">Private Cloud</option>
+                        <option value="hybrid">Hybrid Cloud</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="dataClassification">Data Classification</label>
+                    <select id="dataClassification">
+                        <option value="public">Public</option>
+                        <option value="internal">Internal</option>
+                        <option value="confidential">Confidential</option>
+                        <option value="restricted">Restricted/Highly Sensitive</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="workloadSize">Estimated Workload Size (GB)</label>
+                    <input type="number" id="workloadSize" value="1000" min="1" max="100000">
+                </div>
+
+                <div class="input-group">
+                    <label for="userCount">Number of Users</label>
+                    <input type="number" id="userCount" value="500" min="1" max="1000000">
+                </div>
+            </div>
+
+            <!-- Risk Factors Section -->
+            <div class="card">
+                <h2>Risk Factors</h2>
+                
+                <div class="input-group">
+                    <label for="complianceReq">Compliance Requirements</label>
+                    <select id="complianceReq">
+                        <option value="none">None</option>
+                        <option value="gdpr">GDPR</option>
+                        <option value="hipaa">HIPAA</option>
+                        <option value="pci">PCI-DSS</option>
+                        <option value="sox">SOX</option>
+                        <option value="multiple">Multiple Standards</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="industryType">Industry Type</label>
+                    <select id="industryType">
+                        <option value="general">General Business</option>
+                        <option value="finance">Financial Services</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="government">Government</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="education">Education</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Security Measures Implemented</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="encryption" checked>
+                            <label for="encryption">Data Encryption (at rest & in transit)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="mfa" checked>
+                            <label for="mfa">Multi-Factor Authentication</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="backup">
+                            <label for="backup">Automated Backup & Recovery</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="monitoring">
+                            <label for="monitoring">24/7 Security Monitoring</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="firewall">
+                            <label for="firewall">Advanced Firewall & IDS/IPS</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="assessBtn">Assess Risk</button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="card results" id="resultsSection" style="display: none;">
+                <h2>Risk Assessment Results</h2>
+                
+                <div class="risk-meter">
+                    <div class="risk-fill" id="riskFill"></div>
+                    <div class="risk-label" id="riskLabel">0% Risk</div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="overallScore">0</div>
+                        <div class="metric-label">Overall Risk Score</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="securityScore">0</div>
+                        <div class="metric-label">Security Score</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="complianceScore">0</div>
+                        <div class="metric-label">Compliance Score</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="costScore">0</div>
+                        <div class="metric-label">Cost Risk Score</div>
+                    </div>
+                </div>
+
+                <div class="recommendations" id="recommendations"></div>
+
+                <div class="risk-breakdown">
+                    <h3>Risk Factor Breakdown</h3>
+                    <canvas id="riskChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
